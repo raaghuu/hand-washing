@@ -7,6 +7,6 @@
 <div bp="grid">
   <img
     bp="4@md 12@sm offset-5@md"
-    src="handwash.png"
+    src="handwash.gif"
     alt="How to wash your hands." />
 </div>
