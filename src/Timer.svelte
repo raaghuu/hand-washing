@@ -1,9 +1,11 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   import ProgressBar from './ProgressBar.svelte';
 
   const totalSeconds = 20;
   let secondsLeft = totalSeconds;
   let isRunning = false;
+  const dispatch = createEventDispatcher();
 
   const countdown = () => {
     isRunning = true;
@@ -11,6 +13,7 @@
       secondsLeft -= 1;
       if (secondsLeft == 0) {
         clearInterval(timer);
+        dispatch('end');
         setTimeout(() => {
           isRunning = false;
           secondsLeft = totalSeconds;
@@ -41,7 +44,7 @@
   <h2 bp="offset-5@md 4@md 12@sm">Seconds Left: {secondsLeft}</h2>
 </div>
 
-<ProgressBar progress={(secondsLeft / totalSeconds) * 100} />
+<ProgressBar progress={((totalSeconds - secondsLeft) / totalSeconds) * 100} />
 
 <div bp="grid">
   <button
