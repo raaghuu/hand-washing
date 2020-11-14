@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
+    "ghpbuild": "rollup -c rollup-ghPages.config.js",
     "dev": "rollup -c -w",
     "start": "sirv public --host"
   },
